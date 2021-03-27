@@ -32,4 +32,5 @@ lista pasazerow: 02 Matianek
 43 Chavez
 liczba rezerwacji: 4
 
-Program uruchamiany jest z linii poleceń z wykorzystaniem następującego przełącznika: -i plik wejściowy z rezerwacjami
+Program uruchamiany jest z linii poleceń z wykorzystaniem następującego przełącznika: 
+-i plik wejściowy z rezerwacjami
