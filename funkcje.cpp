@@ -1,9 +1,3 @@
-/** @file */
-//  funkcje.cpp
-//  LOTY
-//  Created by Karola on 29/12/2019.
-//  Copyright © 2019 Karolina Bryś. All rights reserved.
-
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
@@ -13,7 +7,6 @@
 #include "funkcje.h"
 using namespace std;
 
-// funkcje struktury lot
 void pokazLot(lot* temp) {
     cout << temp->symbol_lotu << " " << temp->lotnisko_startowe << " "  << temp->data_lotu << " " << endl;
 }
@@ -50,7 +43,6 @@ void dodajLotDoListy(lot* &lista_lotow, string symbol_lotu, string lotnisko_star
     }
 }
 
-// funkcje struktury pasazer
 void pokazPasazera(pasazer* temp) {
     cout << temp->nazwisko_pasazera << " " << temp->numer_miejsca << endl;
 }
@@ -75,28 +67,23 @@ void dodajPasazeraDoListy(pasazer* &lista_pasazerow, string nazwisko_pasazera, i
         pasazer* poprzedni_pasazer = nullptr;
         pasazer* obecny_pasazer = lista_pasazerow;
         while (obecny_pasazer != nullptr) {
-            if (obecny_pasazer->numer_miejsca > numer_miejsca) {        // szukamy na liście pasażera z wyższym numerem miejsca
-                if (obecny_pasazer == lista_pasazerow)                  // jeśli odnaleziony pasażer JEST pierwszy na liście...
+            if (obecny_pasazer->numer_miejsca > numer_miejsca) {        
+                if (obecny_pasazer == lista_pasazerow)                  
                 {
                     lista_pasazerow = nowyPasazer(nazwisko_pasazera, numer_miejsca);
-                    // ...dodajemy nowego pasażera na początek
                     lista_pasazerow->nastepny_pasazer = obecny_pasazer;
-                    // ...i wskazujemy odnalezionego pasażera jako kolejnego
                     return;
                 }
-                else                                                    // jeśli odnaleziony pasażer NIE JEST pierwszy na liście...
+                else                                                    
                 {
                     poprzedni_pasazer->nastepny_pasazer = nowyPasazer(nazwisko_pasazera, numer_miejsca);
-                    // ...podpinamy nowego pasażera pod poprzedniego z listy
                     poprzedni_pasazer->naoostepny_pasazer->nastepny_pasazer = obecny_pasazer;
-                    // ...i każemy wskazywać nowo dodanemy pasażerowi na odnalezionego pasażera o wyższym numerze miejsca
                     return;
                 }
                 
             }
-            if (obecny_pasazer->nastepny_pasazer == nullptr) {          // jeśli doszliśmy w poszukiwaniach na koniec listy...
+            if (obecny_pasazer->nastepny_pasazer == nullptr) {          
                 obecny_pasazer->nastepny_pasazer = nowyPasazer(nazwisko_pasazera, numer_miejsca);
-                // ... po prostu dodajemy tam nowego pasażera
                 return;
             }
             poprzedni_pasazer = obecny_pasazer;
@@ -105,7 +92,6 @@ void dodajPasazeraDoListy(pasazer* &lista_pasazerow, string nazwisko_pasazera, i
     }
 }
 
-//fukcje dla dwóch list
 void dodajLotOrazPasazeraDoListy(lot* &lista_lotow, string symbol_lotu, string lotnisko_startowe, string data_lotu, string nazwisko_pasazera, int numer_miejsca) {
     if (lista_lotow == nullptr)
     {
@@ -161,7 +147,6 @@ void usunListeLotow(lot* &lista_lotow) {
     }
 }
 
-// funkcje glownego programu
 
 void wczytywanieLotowOrazPasazerow(string sciezka_do_pliku,lot* &lista_lotow)
 {
