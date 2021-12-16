@@ -1,8 +1,8 @@
-# Loty
+# Flights
 First Term Project 2019
 
 
-Treść zadania:
+To do:
 
 Korzystając z dynamicznych struktur danych napisać program, który przygotowuje listy pasażerów. 
 Pasażerowie mogą rezerwować bilety na różne loty w różnych biurach i przez internet. Wszystkie rezerwacje są zapisywane w biurze centralnym. 
